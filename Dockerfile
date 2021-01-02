@@ -9,6 +9,10 @@ ENV ANDROID_HOME "${ANDROID_SDK_ROOT}"
 ENV PATH "$PATH:${ANDROID_SDK_ROOT}/tools"
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN pwd
+
+RUN ls -la
+
 RUN apt-get -qq update \
  && apt-get install -qqy --no-install-recommends \
       bzip2 \
@@ -51,4 +55,6 @@ RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/pac
  && ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} ${PACKAGES}
 
 RUN gem install bundler
+
+
 RUN bundle install
