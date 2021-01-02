@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-MAINTAINER Jan Grewe <jan@faked.org>
+MAINTAINER Osmir Mesquita <osnirmsantos@gmail.com>
 
 ENV VERSION_TOOLS "6609375"
 
@@ -23,6 +23,8 @@ RUN apt-get -qq update \
       lib32z1 \
       unzip \
       locales \
+      ruby \
+      ruby-dev
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
@@ -47,3 +49,6 @@ RUN mkdir -p /root/.android \
 
 RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/packages.txt \
  && ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} ${PACKAGES}
+
+RUN gem install bundle
+RUN bundle install
