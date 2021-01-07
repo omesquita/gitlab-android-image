@@ -9,7 +9,7 @@ Others tools will be added over time.
 A `.gitlab-ci.yml` with caching of your project's dependencies would look like this:
 
 ```
-image: osnirmesquita/gitlab-ci-android-fastlane
+image: omesquita/gitlab-android
 
 stages:
 - build
