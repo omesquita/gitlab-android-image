@@ -1,5 +1,10 @@
-# gitlab-ci-android
+# gitlab-android-image
 This Docker image contains the Android SDK and most common packages necessary for building Android apps in a CI tool like GitLab CI. Make sure your CI environment's caching works as expected, this greatly improves the build time, especially if you use multiple build jobs.
+
+This repository is forked from [jangrewe/gitlab-ci-android](https://github.com/jangrewe/gitlab-ci-android) and contains some others tools added. 
+  - Fastlane
+
+Others tools will be added over time. 
 
 A `.gitlab-ci.yml` with caching of your project's dependencies would look like this:
 

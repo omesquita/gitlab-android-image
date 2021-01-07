@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
-MAINTAINER Osmir Mesquita <osnirmsantos@gmail.com>
+MAINTAINER Osnir Mesquita <osnirmsantos@gmail.com>
 
-ENV VERSION_TOOLS "6609375"
+ENV VERSION_TOOLS "6858069"
 
 ENV ANDROID_SDK_ROOT "/sdk"
 # Keep alias for compatibility
