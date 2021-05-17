@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER Osnir Mesquita <osnirmsantos@gmail.com>
 
-ENV VERSION_TOOLS "6858069"
+ENV VERSION_TOOLS "7302050"
 
 ENV ANDROID_SDK_ROOT "/sdk"
 # Keep alias for compatibility
@@ -26,9 +26,6 @@ RUN apt-get -qq update \
     lib32ncurses6 \
     lib32z1 \
     unzip \
-    locales \
-    ruby \
-    ruby-dev \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN locale-gen en_US.UTF-8
@@ -58,10 +55,5 @@ RUN mkdir -p /root/.android \
  && touch /root/.android/repositories.cfg \
  && sdkmanager --update
 
-<<<<<<< HEAD
-RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/packages.txt \
- && ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} ${PACKAGES}
-=======
 ADD packages.txt /sdk
 RUN sdkmanager --package_file=/sdk/packages.txt
->>>>>>> a1c68b7735be338e18dd7c6fdd039855307e82e9
