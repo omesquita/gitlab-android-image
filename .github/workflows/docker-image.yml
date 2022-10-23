@@ -15,5 +15,8 @@ jobs:
     - name: Build the Docker image
       run: docker build -t omesquita/gitlab-android:latest .
     
+    - name: auth
+      run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWROD }}
+    
     - name: publish
       run: docker push omesquita/gitlab-android:latest
