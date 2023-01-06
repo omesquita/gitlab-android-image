@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER Osnir Mesquita <osnirmsantos@gmail.com>
 
-ENV VERSION_TOOLS "8512546"
+ENV VERSION_TOOLS "9123335"
 
 ENV ANDROID_SDK_ROOT "/sdk"
 # Keep alias for compatibility
@@ -19,7 +19,7 @@ RUN apt-get -qq update \
     curl \
     git-core \
     html2text \
-    openjdk-11-jdk \
+    openjdk-17-jdk \
     libc6-i386 \
     lib32stdc++6 \
     lib32gcc1 \
